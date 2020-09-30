@@ -468,7 +468,7 @@ function render(delta) {
       vec2 sample = gl_FragCoord.xy / u_resolution.xy;
       uv.y += -0.3;
       uv.x += -0.15;
-      uv.x +=  cos(u_time *.1) / 12.;
+      uv.x +=  0.2 + cos(u_time *.1) / 12.;
       uv.y += -sin(u_time * .1) / 18.;
       //sample.x += sin(u_time*.05);
       
