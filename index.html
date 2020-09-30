@@ -37,7 +37,7 @@ loader.load(
     texture.minFilter = THREE.LinearFilter;
     
     loader.load( 
-      'https://uploads-ssl.webflow.com/5f6b75700c6e8888f078c413/5f74474fc5b611a01f8c07de_gradient%20bg%20env.png',
+      'https://uploads-ssl.webflow.com/5f6b75700c6e8888f078c413/5f749d3812d7a3ad552889f4_gradient%20bg%20env.png',
       function environment_load(tex) {
         environment = tex;
         environment.wrapS = THREE.ClampToEdgeWrapping;
@@ -45,7 +45,7 @@ loader.load(
         environment.minFilter = THREE.NearestMipMapNearestFilter;
         
         loader.load(
-          'https://uploads-ssl.webflow.com/5f6b75700c6e8888f078c413/5f74974cd0c25b1e0f08a5d5_logo%202.png',
+          'https://uploads-ssl.webflow.com/5f6b75700c6e8888f078c413/5f749d01ddaf61ea3c28dd0f_logo%202.png',
           function environment_load(tex) {
             pooltex = tex;
             pooltex.wrapS = THREE.ClampToEdgeWrapping;
@@ -244,7 +244,6 @@ function render(delta) {
   #define velPropagation 1.4
   #define pow2(x) (x * x)
   
-  // Holy fuck balls, fresnel!
   const float bias = .2;
   const float scale = 10.;
   const float power = 10.1;
@@ -451,7 +450,7 @@ function render(delta) {
     metalness *= metalness;
 
     vec3 colour = (texCol * (diffuse*vec3(1, .97, .92)*2. + 0.5) + lightColour*specular * f * 2. * metalness)*attenuation*1.5;
-    //colour *= 1.5;
+    colour *= 0.8;
 
     // return vec4(shade);
     return vec4(colour, 1.);
@@ -469,8 +468,8 @@ function render(delta) {
       vec2 sample = gl_FragCoord.xy / u_resolution.xy;
       uv.y += -0.3;
       uv.x += -0.15;
-      uv.x +=  cos(u_time *.1) / 5.;
-      uv.y += -sin(u_time * .1) / 12.;
+      uv.x +=  cos(u_time *.1) / 12.;
+      uv.y += -sin(u_time * .1) / 18.;
       //sample.x += sin(u_time*.05);
       
       float distortion;
